@@ -15,6 +15,11 @@ public class Aplic {
 
 		ChessMatch chessMatch = new ChessMatch();
 
+		
+		System.out.println("================================");
+	    System.out.println("         CHESS GAME");
+	    System.out.println("================================");
+	    
 		while (true) {
 			try {
 				UI.printBoard(chessMatch.getPieces());

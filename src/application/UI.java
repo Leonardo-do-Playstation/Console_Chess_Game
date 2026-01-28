@@ -29,9 +29,12 @@ public class UI {
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
 	public static void clearScreen() {
-	    for (int i = 0; i < 25; i++) {
-	        System.out.println();
-	    }
+		for (int i = 0; i < 15; i++) {
+			System.out.println();
+		}
+		System.out.println("================================");
+		System.out.println("         CHESS GAME");
+		System.out.println("================================");
 	}
 
 	public static ChessPosition readChessPosition(Scanner sc) {
