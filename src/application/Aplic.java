@@ -23,7 +23,7 @@ public class Aplic {
 	    System.out.println("         CHESS GAME");
 	    System.out.println("================================");
 	    
-		while (true) {
+		while (!chessMatch.getCheckMate()) {
 			try {
 				UI.printMatch(chessMatch, captured);
 				System.out.println();
@@ -57,6 +57,8 @@ public class Aplic {
 				UI.clearScreen();
 			}
 		}
+		UI.clearScreen();
+		UI.printMatch(chessMatch, captured);
 	}
 
 }
