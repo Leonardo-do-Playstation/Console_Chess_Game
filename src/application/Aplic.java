@@ -18,11 +18,10 @@ public class Aplic {
 		ChessMatch chessMatch = new ChessMatch();
 		List<ChessPiece> captured = new ArrayList<>();
 
-		
 		System.out.println("================================");
-	    System.out.println("         CHESS GAME");
-	    System.out.println("================================");
-	    
+		System.out.println("         CHESS GAME");
+		System.out.println("================================");
+
 		while (!chessMatch.getCheckMate()) {
 			try {
 				UI.printMatch(chessMatch, captured);
@@ -32,26 +31,28 @@ public class Aplic {
 
 				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
 				UI.printBoard(chessMatch.getPieces(), possibleMoves);
-				
-				
+
 				System.out.println();
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(sc);
 
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
-				
-				if(capturedPiece != null) {
+
+				if (capturedPiece != null) {
 					captured.add(capturedPiece);
 				}
-				
+				if (chessMatch.getPromoted() != null) {
+					System.out.print("Enter piece for promotion (B/H/R/Q): ");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
+				}
+
 				UI.clearScreen();
-			}
-			catch(ChessException e) {
+			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 				UI.clearScreen();
-			}
-			catch(InputMismatchException e) {
+			} catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 				UI.clearScreen();
