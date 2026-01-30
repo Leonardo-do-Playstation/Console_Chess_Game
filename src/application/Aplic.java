@@ -42,9 +42,13 @@ public class Aplic {
 					captured.add(capturedPiece);
 				}
 				if (chessMatch.getPromoted() != null) {
-					System.out.print("Enter piece for promotion (B/H/R/Q): ");
-					String type = sc.nextLine();
-					chessMatch.replacePromotedPiece(type);
+					System.out.print("Enter a piece for promotion (B/H/R/Q): ");
+					String type = sc.nextLine().toUpperCase();
+					while (type == null || !type.equals("B") && !type.equals("H") && !type.equals("R") && !type.equals("Q")) {
+						System.out.print("Invalid value! Enter a piece for promotion (B/H/R/Q): ");
+						type = sc.next().toUpperCase();
+					}
+						chessMatch.replacePromotedPiece(type);
 				}
 
 				UI.clearScreen();
